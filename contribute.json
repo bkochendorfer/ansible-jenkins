@@ -1,15 +1,15 @@
 {
   "name": "ansible-jenkins",
-  "description": "MDN jenkins server ansible playbook",
+  "description": "SUMO jenkins server ansible playbook",
   "repository": {
-    "url": "https://github.com/mdn/ansible-jenkins",
+    "url": "https://github.com/mozilla-it/sumo-jenkins",
     "license": "CC0"
   },
   "participate": {
-    "home": "https://developer.mozilla.org/",
-    "docs": "https://github.com/mdn/ansible-jenkins/README.md",
-    "mailing-list": "https://discourse.mozilla.org/c/mdn",
-    "irc": "irc://irc.mozilla.org/mdndev"
+    "home": "https://support.mozilla.org/",
+    "docs": "https://github.com/mozilla-it/sumo-jenkins/README.md",
+    "mailing-list": "https://discourse.mozilla.org/c/sumo",
+    "irc": "irc://irc.mozilla.org/sumo"
   },
   "keywords": [
     "infrastructure",
