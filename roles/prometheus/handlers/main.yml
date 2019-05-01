@@ -1,0 +1,29 @@
+---
+- name: reload prometheus
+  service:
+    name: prometheus
+    state: reloaded
+  become_user: root
+  listen: reload prometheus-all
+
+- name: reload prometheus node exporter
+  service:
+    name: prometheus-node-exporter
+    state: reloaded
+  become_user: root
+  listen: reload prometheus-all
+
+- name: restart prometheus
+  service:
+    name: prometheus
+    state: restarted
+  become_user: root
+  listen: restart prometheus-all
+
+- name: restart prometheus node exporter
+  service:
+    name: prometheus-node-exporter
+    state: restarted
+  become_user: root
+  listen: restart prometheus-all
+

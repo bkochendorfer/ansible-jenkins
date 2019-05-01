@@ -1,0 +1,22 @@
+---
+- name: Install prometheus system
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 600
+    with_items:
+      - prometheus
+      - prometheus-node-exporter
+
+- name: Copy prometheus configuration
+  copy:
+    src: prometheus.yml
+    dest: /etc/prometheus/prometheus.yml
+    group: root
+    owner: root
+    mode: 0644
+  notify: reload prometheus-all
+  tags: prometheus-conf
+
+

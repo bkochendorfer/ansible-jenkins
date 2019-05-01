@@ -26,3 +26,5 @@
       tags: mail
     - role: papertrail
       tags: papertrail
+    - role: prometheus
+      tags: prometheus
