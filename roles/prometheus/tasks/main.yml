@@ -5,9 +5,9 @@
     state: present
     update_cache: yes
     cache_valid_time: 600
-    with_items:
-      - prometheus
-      - prometheus-node-exporter
+  with_items:
+    - prometheus
+    - prometheus-node-exporter
 
 - name: Copy prometheus configuration
   copy:
@@ -16,7 +16,7 @@
     group: root
     owner: root
     mode: 0644
-  notify: reload prometheus-all
+  notify: restart prometheus
   tags: prometheus-conf
 
 
