@@ -1,0 +1,24 @@
+---
+- name: Install slack-cli pip package
+  pip:
+    name: slack-cli
+
+- name: Create slack-cli secret path
+  file:
+    path: /var/lib/jenkins/.config/slack-cli
+    recurse: yes
+    state: directory
+    owner: jenkins
+    group: jenkins
+    mode: 0755
+
+- name: Copy slack-cli token files
+  template:
+    src: "{{ item }}.j2"
+    dest: "/var/lib/jenkins/.config/{{ item }}"
+    mode: 0600
+    owner: jenkins
+    group: jenkins
+  with_items:
+    - slack_token
+    - teams.json
