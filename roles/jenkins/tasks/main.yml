@@ -75,4 +75,9 @@
     state: directory
 
 - name: Place ssh deploy key
-  shell: echo "{{ gh_deploy_key }}" > /var/lib/jenkins/.ssh/id_rsa
+  shell: |
+    aws ssm get-parameter --with-decryption --name {{ ssm_key }} --output text --query Parameter.Value --region us-west-2 > /var/lib/jenkins/.ssh/id_rsa
+    chown jenkins.jenkins /var/lib/jenkins/.ssh/id_rsa
+    chmod 0400 /var/lib/jenkins/.ssh/id_rsa
+  become: yes
+
