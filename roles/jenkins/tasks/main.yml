@@ -65,3 +65,14 @@
     job: "/usr/bin/flock -w 10 /var/lock/backup_jenkins.lock /usr/local/bin/jenkins-backup.sh > /dev/null 2>&1"
     minute: "*/15"
     cron_file: jenkins_backup
+
+- name: Prep ssh private key placement
+  file:
+    path: /var/lib/jenkins/.ssh
+    mode: '0711'
+    owner: jenkins
+    group: jenkins
+    state: directory
+
+- name: Place ssh deploy key
+  shell: echo "{{ gh_deploy_key }}" > /var/lib/jenkins/.ssh/id_rsa
