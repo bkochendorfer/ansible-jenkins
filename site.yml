@@ -4,7 +4,7 @@
   become: True
 
   vars_files:
-    #- 'local_settings.yml'
+    - 'local_settings.yml'
     - './vars/users.yaml'
 
   roles:

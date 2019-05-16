@@ -79,8 +79,6 @@
     aws ssm get-parameter --with-decryption --name {{ ssm_key }} --output text --query Parameter.Value --region us-west-2 > {{ jenkins_home }}/.ssh/id_rsa
     chown jenkins.jenkins {{ jenkins_ssh_key }}
     chmod 0400 {{ jenkins_ssh_key }}
-  become: yes
-
 
 - name: Place ssh config
   template:
