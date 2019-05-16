@@ -94,10 +94,11 @@
     mode: 0600
     owner: jenkins
     group: jenkins
-    state: file
+    state: touch
 
 - name: Ensure github.com is a known host
   lineinfile:
     dest: "{{ jenkins_home }}/.ssh/known_hosts"
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
     regexp: "^github\\.com"
+  become_user: jenkins
