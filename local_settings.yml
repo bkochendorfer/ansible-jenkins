@@ -1,0 +1,3 @@
+---
+jenkins_ssh_key: "/var/lib/jenkins/.ssh/mozilla-it-l10n.id_ed25519"
+jenkins_home: "/var/lib/jenkins"
