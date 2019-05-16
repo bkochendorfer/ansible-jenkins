@@ -94,7 +94,5 @@
     create: yes
     state: present
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
-    create: yes
-    state: present
-  regexp: "^github\\.com"
+    regexp: "^github\\.com"
 
