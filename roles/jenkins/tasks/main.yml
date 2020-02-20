@@ -102,3 +102,11 @@
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
     regexp: "^github\\.com"
   become_user: jenkins
+
+- name: Create a basic gitconfig
+  copy:
+    src: gitconfig
+    dest: "{{ jenkins_home }}/.gitconfig"
+    owner: jenkins
+    group: jenkins
+    mode: 0644

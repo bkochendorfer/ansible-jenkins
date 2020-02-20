@@ -1,0 +1,4 @@
+ [user]
+     useConfigOnly = true
+     email = jenkins@localhost
+     name = Jenkins CI
